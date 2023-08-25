@@ -1,5 +1,8 @@
 import './App.css';
-
-const App = () => <></>;
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Registro from "./components/Registro";
+const App = () => <>
+ <Registro />
+</>;
 
 export default App;
