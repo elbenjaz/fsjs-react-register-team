@@ -1,31 +1,29 @@
+import Feedback from "./Feedback";
+import Formulario from "./Formulario";
+import SocialButton from "./SocialButton";
 
-import { useState } from "react"
-import Formulario from "./Formulario"
-import Alert from "./Alert"
-import SocialButton from "./SocialButton"
+import { useState } from "react";
 
+const Registro = () => {
+    const [feedback, setFeedback] = useState("");
 
-const Registro = ({facebook,git,linke}) => {
-    const [atento,setAtento] = useState({
-            error: "",
-            msg:"",
-            color:"",
-        
-    })
-  return (
-    <>
-    <h1>Crea una cuenta</h1>
-    <SocialButton 
-                FacebookIcon={facebook} 
-                GithubIcon={git} 
-                LinkedinIcon={linke} 
-            />
-    <h6>O usa tu email para registrarte</h6>
-    <Formulario setAtento={setAtento} />
-    {atento.msg && <Alert color={atento.color}>{atento.msg}</Alert>}
-    
-    </>
-  )
-}
+    return (
+        <div className="Registro">
+            <div className="text-center">
+                <h4>Create an account</h4>
 
-export default Registro
+                <SocialButton brand="facebook" />
+                <SocialButton brand="github" />
+                <SocialButton brand="linkedin" />
+
+                <p>Or use your email</p>
+            </div>
+
+            <Formulario setFeedback={setFeedback} />
+
+            <Feedback feedback={feedback} setFeedback={setFeedback} />
+        </div>
+    );
+};
+
+export default Registro;
